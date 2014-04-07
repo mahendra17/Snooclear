@@ -1,0 +1,69 @@
+settings = {
+	orientation = {
+		default = "portrait",
+		supported = { "portrait", }
+	},
+	plugins =
+	{
+		-- key is the name passed to Lua's 'require()' This section is only required for builds > 2014.2165
+		["facebook"] =
+		{
+			-- required
+			publisherId = "com.coronalabs",
+			supportedPlatforms = { iphone = true, ["iphone-sim"] = true },
+		},
+	},
+	iphone = {
+			plist = {
+				CFBundleIconFiles = {
+		            "Icon.png",
+		            "Icon@2x.png",
+		            "Icon-Small-40.png",
+		            "Icon-Small-40@2x.png",
+		            "Icon-60.png",
+		            "Icon-60@2x.png",
+		            "Icon-72.png",
+		            "Icon-72@2x.png",
+		            "Icon-76.png",
+		            "Icon-76@2x.png",
+		            "Icon-Small-50.png",
+		            "Icon-Small-50@2x.png",
+		            "Icon-Small.png",
+		            "Icon-Small@2x.png"
+	            },
+				UIAppFonts = 
+				{ 
+					"Blanch-Caps.ttf",
+					"Blanch-CapsInline.ttf",
+					"Blanch-CapsLight.ttf",
+					"Calibri.ttf"
+				},
+				
+				UIPrerenderedIcon = false, -- set to false for "shine" overlay
+				UIApplicationExitsOnSuspend = false,	-- must be false for single sign-on to work
+				FacebookAppID = "258512944311281",	-- replace XXXXXXXXX with your facebook appId
+
+				CFBundleURLTypes =
+				{
+					{
+						CFBundleURLSchemes =
+						{
+							"fb258512944311281",	-- replace XXXXXXXXX with your facebook appId
+							
+						}
+					}
+				}
+	            --]]
+			}
+		},
+
+
+
+	android = 
+	{
+		usesPermissions = 
+		{
+			"android.permission.INTERNET",
+		},
+	},
+}
